@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 05:47:06 by jhurpy            #+#    #+#              #
-#    Updated: 2023/11/17 22:47:17 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/12/02 15:26:33 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 # Source files
 SRCS = main.cpp Harl.cpp
 
+# Header files
+HDRS = Harl.hpp
+
 # Object files
 OBJS = $(SRCS:.cpp=.o)
 
@@ -35,7 +38,7 @@ NAME = Harl_2.0
 all: $(NAME)
 
 # Rule to build the executable
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HDRS)
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(BGREEN)Executable $(NAME) created!$(RESET)"
 
