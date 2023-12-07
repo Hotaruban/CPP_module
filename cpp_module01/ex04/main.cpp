@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:21:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/02 00:26:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/07 14:59:32 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ int	main(int argc, char **argv)
 {
 	std::ofstream		destFile;
 	std::string			nameDestFile;
-	myReplace			replace(argv[1]);
 
 	if (argc != 4)
 		return (std::cout << "Usage: ./Sed_is_for_losers [file] [s1] [s2]" << std::endl, 1);
-	nameDestFile = std::string(argv[1]).append(".replace");
+	myReplace			replace(argv[1]);
+	if (replace.openFileFailed())
+		return (std::cout << "Error: " << strerror(errno) << std::endl, 1);
+	nameDestFile = std::string(argv[1]).append(".replace").c_str();
 	destFile.open(nameDestFile.c_str());
 	if (!destFile.is_open())
 		return (std::cout << "Error: " << strerror(errno) << std::endl, 1);

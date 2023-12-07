@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:16:13 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/02 00:23:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/07 14:57:34 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,29 @@ myReplace::myReplace(void)
 
 myReplace::myReplace(const std::string file)
 {
-	this->_file = file;
+	this->_file.open(file.c_str());
+	if (!this->_file.is_open())
+		this->_openFailed = true;
+	else
+		this->_openFailed = false;
 }
 
 myReplace::~myReplace()
 {
+	this->_file.close();
+}
 
+bool		myReplace::openFileFailed()
+{
+	return (this->_openFailed);
 }
 
 std::string		myReplace::replaceWord(const std::string s1, const std::string s2)
 {
 	std::string		result;
 	std::string		line;
-	std::ifstream	sourceFile;
 
-	sourceFile.open(this->_file.c_str());
-	if (!sourceFile.is_open())
-	{
-		std::cout << "Error: " << strerror(errno) << std::endl;
-		return (NULL);
-	}
-	while (std::getline(sourceFile, line))
+	while (std::getline(this->_file, line))
 	{
 		size_t pos = 0;
 		size_t foundPos;
@@ -53,6 +55,5 @@ std::string		myReplace::replaceWord(const std::string s1, const std::string s2)
 		result.append(line.substr(pos, line.length() - pos));
 		result.append("\n");
 	}
-	sourceFile.close();
 	return (result);
 }
