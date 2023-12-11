@@ -6,11 +6,18 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:21:39 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/07 14:59:32 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/11 12:13:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyReplace.hpp"
+
+static bool	isFileEmpty(const char *file)
+{
+	std::ifstream		fileStream(file);
+
+	return (fileStream.peek() == std::ifstream::traits_type::eof());
+}
 
 int	main(int argc, char **argv)
 {
@@ -19,6 +26,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 4)
 		return (std::cout << "Usage: ./Sed_is_for_losers [file] [s1] [s2]" << std::endl, 1);
+	if (isFileEmpty(argv[1]))
+		return (std::cout << "Error: empty file" << std::endl, 1);
 	myReplace			replace(argv[1]);
 	if (replace.openFileFailed())
 		return (std::cout << "Error: " << strerror(errno) << std::endl, 1);
@@ -30,61 +39,3 @@ int	main(int argc, char **argv)
 	destFile.close();
 	return (0);
 }
-
-
-//std::string		replaceWord(const std::string str, const std::string s1, const std::string s2)
-//{
-//	std::string		result;
-//	std::string		line;
-//	std::ifstream	sourceFile;
-
-//	sourceFile.open(str, O_RDONLY);
-//	if (errno)
-//	{
-//		std::cout << "Error: " << strerror(errno) << std::endl;
-//		return (NULL);
-//	}
-//	while (std::getline(sourceFile, line))
-//	{
-//		size_t pos = 0;
-//		size_t foundPos;
-
-//		while ((foundPos = line.find(s1, pos)) != std::string::npos)
-//		{
-//			result.append(line.substr(pos, foundPos - pos));
-//			result.append(s2);
-//			pos = foundPos + s1.length();
-//		}
-//		result.append(line.substr(pos));
-//		result.append("\n");
-//	}
-//	return (result);
-//}
-
-//int	main(int argc, char **argv)
-//{
-//	std::ifstream		nameSourceFile;
-//	std::ofstream		destFile;
-//	std::string			nameSourceFile;
-//	const char			*nameDestFile;
-
-//	if (argc != 4)
-//		return (std::cout << "Wrong number of arguments" << std::endl, 1);
-//	nameSourceFile.open(argv[1]);
-//	if (!nameSourceFile.is_open())
-//	{
-//		std::cout << "Error: " << strerror(errno) << std::endl;
-//		return (1);
-//	}
-//	nameDestFile = nameSourceFile.append(".replace").c_str();
-//	destFile.open(nameDestFile);
-//	if (errno)
-//	{
-//		std::cout << "Error: " << strerror(errno) << std::endl;
-//		return (1);
-//	}
-//	destFile << replaceWord(argv[1], argv[2], argv[3]);
-//	destFile.close();
-//	return (0);
-//}
-

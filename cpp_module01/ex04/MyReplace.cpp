@@ -6,11 +6,13 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:16:13 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/07 14:57:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/11 12:13:30 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyReplace.hpp"
+
+// protect file in case of empty file
 
 myReplace::myReplace(void)
 {

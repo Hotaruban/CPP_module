@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 05:48:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/11/17 20:24:35 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/12/11 11:52:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	~Zombie(void);
 	void	announce(void);
 	void	setName(std::string name);
+	std::string	getName(void);
 };
 
 Zombie	*newZombie(std::string name);
