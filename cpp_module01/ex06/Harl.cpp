@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 00:31:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/02 15:22:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/31 15:47:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,12 @@ void	Harl::complainFilter(std::string level)
 	{
 		case 0:
 			(this->*speak[0])();
-			break;
 		case 1:
 			(this->*speak[1])();
-			break;
 		case 2:
 			(this->*speak[2])();
-			break;
 		case 3:
 			(this->*speak[3])();
-			break;
 		default:
 			std::cout << BRED << "Usage: ./harl [level] => {DEBUG, INFO, WARNING, ERROR}" << RESET << std::endl;
 			break;
