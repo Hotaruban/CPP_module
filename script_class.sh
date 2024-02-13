@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 23:37:29 by jhurpy            #+#    #+#              #
-#    Updated: 2024/01/13 23:46:01 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/02/08 16:55:34 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ ${class_name}::${class_name}(const ${class_name}& other)
 
 ${class_name}& ${class_name}::operator=(const ${class_name}& other)
 {
-	if (this != &other) {}
+	if (this != &other)
+	{}
 	return *this;
 }
 
