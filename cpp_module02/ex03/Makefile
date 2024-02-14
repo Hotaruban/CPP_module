@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/08 15:29:34 by jhurpy            #+#    #+#              #
-#    Updated: 2024/02/08 15:29:50 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/02/14 18:58:15 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET = \033[0m
 
 CXX = g++
 CXXFLAGS = -std=c++11
-SRC = Fixed.cpp main.cpp
+SRC = Fixed.cpp main.cpp Point.cpp bsp.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = Fixed
 

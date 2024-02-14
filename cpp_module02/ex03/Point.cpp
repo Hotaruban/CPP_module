@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 23:37:28 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/13 23:37:29 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/14 19:35:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,13 @@ Point& Point::operator=(const Point& other)
 Point::Point(const float x, const float y) : _x(x), _y(y) { }
 
 Point::~Point() { }
+
+int	Point::getX() const
+{
+	return (_x.getRawBits());
+}
+
+int	Point::getY() const
+{
+	return (_y.getRawBits());
+}
