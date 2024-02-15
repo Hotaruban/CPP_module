@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 05:48:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/11/17 21:13:58 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 14:28:40 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define BPURPLE	"\033[1;35m"
 
 #include <iostream>
+#include <sstream>
 
 class Zombie
 {

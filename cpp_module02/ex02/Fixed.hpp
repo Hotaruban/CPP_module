@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:29:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/13 22:56:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 14:35:53 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {

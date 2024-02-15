@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 22:06:23 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/11/19 01:12:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 14:52:54 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	main(void)
 	std::string &stringREF = str;
 
 	std::cout << &str << std::endl;
-	std::cout << stringPTR << std::endl;
+	std::cout << &stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 
 	std::cout << str << std::endl;
-	std::cout << *stringPTR << std::endl;
+	std::cout << stringPTR << std::endl;
 	std::cout << stringREF << std::endl;
 	return (0);
 }

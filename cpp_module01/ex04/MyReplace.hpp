@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:16:16 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/07 14:58:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 14:56:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <fstream>
+# include <cstring>
 
 class myReplace
 {
