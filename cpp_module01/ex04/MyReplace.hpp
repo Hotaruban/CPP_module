@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:16:16 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/15 14:56:11 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 17:09:25 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <fstream>
 # include <cstring>
 
-class myReplace
+class MyReplace
 {
 	public:
-		myReplace(void);
-		myReplace(const std::string file);
-		~myReplace();
+		MyReplace(void);
+		MyReplace(const std::string file);
+		~MyReplace();
 		bool			openFileFailed();
 		std::string		replaceWord(const std::string s1, const std::string s2);
 	private:

@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 23:37:29 by jhurpy            #+#    #+#              #
-#    Updated: 2024/02/08 16:55:34 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/02/15 17:08:32 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,8 +109,8 @@ BBLUE = \033[1;34m
 BCYAN = \033[1;36m
 RESET = \033[0m
 
-CXX = g++
-CXXFLAGS = -std=c++11
+CXX = c++
+CXXFLAGS = -std=c++98
 SRC = ${class_names[@]/%/.cpp}
 OBJ = \$(SRC:.cpp=.o)
 EXECUTABLE = $executable_name

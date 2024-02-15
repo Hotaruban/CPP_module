@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:16:13 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/12/11 12:13:30 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/15 17:09:55 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 // protect file in case of empty file
 
-myReplace::myReplace(void)
+MyReplace::MyReplace(void)
 {
 
 }
 
-myReplace::myReplace(const std::string file)
+MyReplace::MyReplace(const std::string file)
 {
 	this->_file.open(file.c_str());
 	if (!this->_file.is_open())
@@ -28,7 +28,7 @@ myReplace::myReplace(const std::string file)
 		this->_openFailed = false;
 }
 
-myReplace::~myReplace()
+MyReplace::~MyReplace()
 {
 	this->_file.close();
 }
@@ -38,7 +38,7 @@ bool		myReplace::openFileFailed()
 	return (this->_openFailed);
 }
 
-std::string		myReplace::replaceWord(const std::string s1, const std::string s2)
+std::string		MyReplace::replaceWord(const std::string s1, const std::string s2)
 {
 	std::string		result;
 	std::string		line;
