@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/16 17:17:29 by jhurpy            #+#    #+#              #
+#    Updated: 2024/02/16 17:38:35 by jhurpy           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 BRED = \033[1;31m
 BYELLOW = \033[1;33m
 BGREEN = \033[1;32m
@@ -6,9 +18,9 @@ BBLUE = \033[1;34m
 BCYAN = \033[1;36m
 RESET = \033[0m
 
-CXX = g++
-CXXFLAGS = -std=c++11
-SRC = ClapTrap.cpp
+CXX = c++
+CXXFLAGS = -std=c++98
+SRC = ClapTrap.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = ClapTrap
 

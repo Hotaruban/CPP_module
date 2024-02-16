@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 17:17:24 by jhurpy            #+#    #+#             */
+/*   Updated: 2024/02/16 17:33:59 by jhurpy           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
@@ -7,6 +19,7 @@ class ClapTrap
 {
 public:
 	ClapTrap();
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
 	~ClapTrap();
