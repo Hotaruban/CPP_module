@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:17:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/16 17:50:05 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 00:39:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ClapTrap::attack(std::string const& target)
 {
 	if (_energyPoints > 0)
 	{
-		std::cout << _name << " attack " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		std::cout << _name << " attack " << target << "with a water gune, causing " << _attackDamage << " points of damage!" << std::endl;
 		_energyPoints--;
 		std::cout << _name << " has " << _energyPoints << " energy points left!" << std::endl;
 	}

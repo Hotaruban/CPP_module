@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:04:10 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 00:23:11 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 00:38:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ void FragTrap::attack(std::string const& target)
 	{
 		std::cout << _name << " get ready to attack " << target << std::endl;
 		_energyPoints--;
-		std::cout << _name << " attack " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		std::cout << _name << " attack " << target << " with is long sword, causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 }

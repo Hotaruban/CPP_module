@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 17:17:29 by jhurpy            #+#    #+#              #
-#    Updated: 2024/02/17 00:19:17 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/02/17 00:37:11 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CXX = c++
 CXXFLAGS = -std=c++98
 SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
-EXECUTABLE = ScavTrap
+EXECUTABLE = FragTrap
 
 $(EXECUTABLE): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
