@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 21:32:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 00:23:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 00:23:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
+	if (_hitpoints > 0)
+		std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
 }
 
 void ScavTrap::attack(std::string const& target)
