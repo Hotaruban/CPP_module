@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:04:16 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 08:50:49 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:16:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class FragTrap : virtual public ClapTrap
 {
 public:
-	FragTrap();
 	FragTrap(const FragTrap& other);
 	FragTrap& operator=(const FragTrap& other);
 	FragTrap(std::string name);
@@ -26,9 +25,7 @@ public:
 	void attack(std::string const& target);
 	~FragTrap();
 protected:
-	//int _hitpoints;
-	//int _energyPoints;
-	//int _attackDamage;
+	FragTrap();
 };
 
 #endif

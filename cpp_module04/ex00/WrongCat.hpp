@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 21:30:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 16:15:24 by jhurpy           ###   ########.fr       */
+/*   Created: 2024/02/17 11:42:44 by jhurpy            #+#    #+#             */
+/*   Updated: 2024/02/17 11:42:45 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+class WrongCat
 {
 public:
-	ScavTrap(const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	ScavTrap(std::string name);
-	void guardGate();
-	void attack(std::string const& target);
-	~ScavTrap();
-protected:
-	ScavTrap();
+	WrongCat();
+	WrongCat(const WrongCat& other);
+	WrongCat& operator=(const WrongCat& other);
+	~WrongCat();
+private:
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:47:52 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 09:25:21 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:02:58 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), Fra
 {
 	_name = name;
 	ClapTrap::_name = name + "_clap_name";
-	_hitpoints = FragTrap::_hitpoints;
+	_hitPoints = FragTrap::_hitPoints;
+	_maxHitPoints = FragTrap::_maxHitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_attackDamage = FragTrap::_attackDamage;
 	std::cout << "DiamondTrap constructor called" << std::endl;
@@ -41,7 +42,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), Fra
 
 void DiamondTrap::attack(std::string const& target)
 {
-	if (_hitpoints > 0)
+	if (_hitPoints > 0)
 	{
 		ScavTrap::attack(target);
 	}

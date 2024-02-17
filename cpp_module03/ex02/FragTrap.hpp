@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:04:16 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 00:15:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:15:29 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 class FragTrap : public ClapTrap
 {
 public:
-	FragTrap();
 	FragTrap(const FragTrap& other);
 	FragTrap& operator=(const FragTrap& other);
 	FragTrap(std::string name);
 	void highFivesGuys();
 	void attack(std::string const& target);
 	~FragTrap();
-private:
+protected:
+	FragTrap();
 };
 
 #endif

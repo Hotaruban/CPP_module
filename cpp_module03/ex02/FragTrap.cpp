@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:04:10 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 09:20:49 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:14:53 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	_name = name;
-	_hitpoints = 100;
+	_hitPoints = 100;
+	_maxHitPoints = _hitPoints;
 	_energyPoints = 100;
 	_attackDamage = 30;
 	std::cout << "FragTrap constructor called" << std::endl;
@@ -45,13 +46,13 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys(void)
 {
-	if (_hitpoints > 0)
+	if (_hitPoints > 0)
 		std::cout << _name << " high fives guys" << std::endl;
 }
 
 void FragTrap::attack(std::string const& target)
 {
-	if (_hitpoints > 0)
+	if (_hitPoints > 0)
 	{
 		std::cout << _name << " get ready to attack " << target << std::endl;
 		_energyPoints--;

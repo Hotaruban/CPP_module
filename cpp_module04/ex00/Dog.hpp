@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 21:30:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 16:15:24 by jhurpy           ###   ########.fr       */
+/*   Created: 2024/02/17 11:42:20 by jhurpy            #+#    #+#             */
+/*   Updated: 2024/02/17 13:00:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
 public:
-	ScavTrap(const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	ScavTrap(std::string name);
-	void guardGate();
-	void attack(std::string const& target);
-	~ScavTrap();
-protected:
-	ScavTrap();
+	Dog();
+	Dog(const Dog& other);
+	Dog& operator=(const Dog& other);
+	virtual void makeSound() const;
+	virtual ~Dog();
+private:
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 21:30:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 08:50:44 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:17:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class ScavTrap : virtual public ClapTrap
 {
 public:
-	ScavTrap();
 	ScavTrap(const ScavTrap& other);
 	ScavTrap& operator=(const ScavTrap& other);
 	ScavTrap(std::string name);
@@ -26,9 +25,7 @@ public:
 	void attack(std::string const& target);
 	~ScavTrap();
 protected:
-	//int _hitpoints;
-	//int _energyPoints;
-	//int _attackDamage;
+	ScavTrap();
 };
 
 #endif

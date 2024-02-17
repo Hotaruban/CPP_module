@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:17:24 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/16 22:08:56 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:16:03 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class ClapTrap
 {
 public:
-	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
@@ -27,8 +26,10 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 protected:
+	ClapTrap();
 	std::string _name;
-	int _hitpoints;
+	int _hitPoints;
+	int _maxHitPoints;
 	int _energyPoints;
 	int _attackDamage;
 };

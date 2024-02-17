@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 21:30:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 16:15:24 by jhurpy           ###   ########.fr       */
+/*   Created: 2024/02/17 11:42:32 by jhurpy            #+#    #+#             */
+/*   Updated: 2024/02/17 11:42:33 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "WrongAnimal.hpp"
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+WrongAnimal::WrongAnimal()
 {
-public:
-	ScavTrap(const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	ScavTrap(std::string name);
-	void guardGate();
-	void attack(std::string const& target);
-	~ScavTrap();
-protected:
-	ScavTrap();
-};
 
-#endif
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal& other)
+{
+
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
+{
+	if (this != &other)
+	{}
+	return *this;
+}
+
+WrongAnimal::~WrongAnimal()
+{
+
+}

@@ -6,13 +6,13 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 21:32:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 00:23:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 16:13:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
@@ -33,7 +33,8 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	_hitpoints = 100;
+	_hitPoints = 100;
+	_maxHitPoints = _hitPoints;
 	_energyPoints = 50;
 	_attackDamage = 20;
 	std::cout << "ScavTrap constructor called" << std::endl;
@@ -51,7 +52,7 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(std::string const& target)
 {
-	if (_hitpoints > 0)
+	if (_hitPoints > 0)
 	{
 		std::cout << _name << " get ready to attack " << target << std::endl;
 		_energyPoints--;
