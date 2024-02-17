@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:17:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 08:58:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 09:13:43 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,19 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if (_hitpoints > 0)
 		std::cout << _name << " has no energy points to be repaired!" << std::endl;
+}
+
+int ClapTrap::getHitpoints() const
+{
+	return _hitpoints;
+}
+
+int ClapTrap::getEnergyPoints() const
+{
+	return _energyPoints;
+}
+
+int ClapTrap::getAttackDamage() const
+{
+	return _attackDamage;
 }
