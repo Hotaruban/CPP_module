@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 23:37:29 by jhurpy            #+#    #+#              #
-#    Updated: 2024/02/15 17:08:32 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/02/20 17:38:40 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,7 @@ BCYAN = \033[1;36m
 RESET = \033[0m
 
 CXX = c++
-CXXFLAGS = -std=c++98
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = ${class_names[@]/%/.cpp}
 OBJ = \$(SRC:.cpp=.o)
 EXECUTABLE = $executable_name

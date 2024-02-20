@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 21:32:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 16:13:07 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:45:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
+	std::cout << "ScavTrap operator= called" << std::endl;
 	if (this != &other)
 	{
 		ClapTrap::operator=(other);
@@ -33,11 +34,11 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+	std::cout << "ScavTrap constructor called" << std::endl;
 	_hitPoints = 100;
 	_maxHitPoints = _hitPoints;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -47,7 +48,8 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
+	if (_hitPoints > 0)
+		std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
 }
 
 void ScavTrap::attack(std::string const& target)

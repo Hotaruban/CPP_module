@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:17:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 16:00:47 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:44:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,35 @@
 ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap default constructor" << std::endl;
+	_name = "ClapTrap";
+	_hitPoints = 10;
+	_maxHitPoints = _hitPoints;
+	_energyPoints = 10;
+	_attackDamage = 0;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+	std::cout << "ClapTrap copy constructor" << std::endl;
+	_name = other._name;
+	_hitPoints = other._hitPoints;
+	_maxHitPoints = other._maxHitPoints;
+	_energyPoints = other._energyPoints;
+	_attackDamage = other._attackDamage;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+	std::cout << "ClapTrap operator=" << std::endl;
+	if (this != &other)
+	{
+		_name = other._name;
+		_hitPoints = other._hitPoints;
+		_maxHitPoints = other._maxHitPoints;
+		_energyPoints = other._energyPoints;
+		_attackDamage = other._attackDamage;
+	}
+	return *this;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -27,29 +56,6 @@ ClapTrap::ClapTrap(std::string name)
 	_attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
-{
-	_name = other._name;
-	_hitPoints = other._hitPoints;
-	_maxHitPoints = other._maxHitPoints;
-	_energyPoints = other._energyPoints;
-	_attackDamage = other._attackDamage;
-	std::cout << "ClapTrap copy constructor" << std::endl;
-}
-
-ClapTrap& ClapTrap::operator=(const ClapTrap& other)
-{
-	if (this != &other)
-	{
-		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_maxHitPoints = other._maxHitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
-	}
-	return *this;
-}
-
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor" << std::endl;
@@ -57,9 +63,12 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(std::string const& target)
 {
+	if (_hitPoints <= 0)
+		std::cout << _name << " cannot attack because he is dead!" << std::endl;
+		return;
 	if (_energyPoints > 0)
 	{
-		std::cout << _name << " attack " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		std::cout << _name << " attack " << target << " with a water gun, causing " << _attackDamage << " points of damage!" << std::endl;
 		_energyPoints--;
 		std::cout << _name << " has " << _energyPoints << " energy points left!" << std::endl;
 	}
