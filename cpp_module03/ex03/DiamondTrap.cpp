@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 00:47:52 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 17:50:17 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 18:03:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ DiamondTrap::DiamondTrap()
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other)
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ScavTrap(other), FragTrap(other)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	*this = other;
+	_energyPoints = ScavTrap::_energyPoints;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
@@ -28,7 +29,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 	std::cout << "DiamondTrap operator= called" << std::endl;
 	if (this != &other)
 	{
-		*this = other;
+		FragTrap::operator=(other);
+		_energyPoints = ScavTrap::_energyPoints;
 	}
 	return *this;
 }
