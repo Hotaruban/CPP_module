@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 12:50:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 02:10:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ int	main(void)
 	delete meta;
 	delete j;
 	delete i;
+
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongJ = new WrongCat();
+
+	std::cout << wrongJ->getType() << std::endl; // Returns "WrongCat"
+	wrongJ->makeSound(); // Returns "WrongCat"
+	wrongMeta->makeSound(); // Will output the animal sound!
+
+	delete wrongMeta;
+	delete wrongJ;
 
 	return (0);
 }

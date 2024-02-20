@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 12:47:12 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 11:25:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Animal& Animal::operator=(const Animal& other)
 	{
 		type = other.type;
 	}
-	return *this;
+	return (*this);
 }
 
 void Animal::makeSound() const

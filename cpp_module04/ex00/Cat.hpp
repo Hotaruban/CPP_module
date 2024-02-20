@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:11 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 12:59:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 18:02:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	Cat(const Cat& other);
 	Cat& operator=(const Cat& other);
 	virtual void makeSound() const;
-	virtual ~Cat();
+	~Cat();
 private:
 };
 

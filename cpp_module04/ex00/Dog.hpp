@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/17 13:00:00 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/17 18:02:24 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	Dog(const Dog& other);
 	Dog& operator=(const Dog& other);
 	virtual void makeSound() const;
-	virtual ~Dog();
+	~Dog();
 private:
 };
 
