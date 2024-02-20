@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:36 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 11:27:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 12:30:13 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	virtual ~WrongAnimal();
 	virtual void makeSound() const;
 	std::string getType() const;
+	void setType(std::string type);
 protected:
 	std::string type;
 };

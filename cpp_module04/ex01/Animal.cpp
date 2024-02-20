@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 12:36:19 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 12:28:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Animal::Animal()
 
 Animal::Animal(const Animal& other)
 {
+	type = other.type;
 	std::cout << "Copy of the living being of Animal" << std::endl;
-	*this = other;
 }
 
 Animal& Animal::operator=(const Animal& other)
@@ -28,7 +28,7 @@ Animal& Animal::operator=(const Animal& other)
 	std::cout << "Assignation of the living being of Animal" << std::endl;
 	if (this != &other)
 	{
-		this->setType(other.getType());
+		type = other.type;
 	}
 	return (*this);
 }

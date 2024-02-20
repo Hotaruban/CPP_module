@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:32 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 12:30:06 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 12:35:06 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 	std::cout << "Assignation of the WrongLiving being" << std::endl;
 	if (this != &other)
 	{
-		type = other.type;
+		this->setType(other.getType());
 	}
 	return (*this);
 }
