@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 12:36:19 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/26 14:23:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Animal& Animal::operator=(const Animal& other)
 
 void Animal::makeSound() const
 {
-
+	std::cout << "I'm an animal ..." << std::endl;
 }
 
 std::string Animal::getType() const
