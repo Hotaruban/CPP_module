@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/03/12 17:43:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/02/20 12:29:34 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Cat::Cat()
 {
 	type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;
-	brain = new Brain();
 }
 
 Cat::Cat(const Cat& other)
@@ -40,13 +39,7 @@ void Cat::makeSound() const
 	std::cout << "Meow Meow" << std::endl;
 }
 
-Brain* Cat::getBrain()
-{
-	return brain;
-}
-
 Cat::~Cat()
 {
-	delete brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
