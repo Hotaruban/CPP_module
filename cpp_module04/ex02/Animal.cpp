@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/26 14:23:48 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/03/16 21:32:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 Animal::Animal()
 {
 	std::cout << "Ceation of the living being of Animal" << std::endl;
+	//brain = new Brain();
 }
 
 Animal::Animal(const Animal& other)
 {
+	type = other.type;
 	std::cout << "Copy of the living being of Animal" << std::endl;
-	*this = other;
 }
 
 Animal& Animal::operator=(const Animal& other)
@@ -28,15 +29,20 @@ Animal& Animal::operator=(const Animal& other)
 	std::cout << "Assignation of the living being of Animal" << std::endl;
 	if (this != &other)
 	{
-		this->setType(other.getType());
+		type = other.type;
 	}
 	return (*this);
 }
 
 void Animal::makeSound() const
 {
-	std::cout << "I'm an animal ..." << std::endl;
+
 }
+
+//Brain* Animal::getBrain()
+//{
+//	return (brain);
+//}
 
 std::string Animal::getType() const
 {
@@ -50,5 +56,6 @@ void Animal::setType(std::string type)
 
 Animal::~Animal()
 {
+	//delete brain;
 	std::cout << "Destruction of the living being of Animal" << std::endl;
 }

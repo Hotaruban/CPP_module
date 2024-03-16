@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:15 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/02/20 12:29:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/03/16 21:32:47 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Dog::Dog()
 {
 	std::cout << "Dog constructor called" << std::endl;
 	type = "Dog";
+	brain = new Brain();
 }
 
 Dog::Dog(const Dog& other)
@@ -39,7 +40,13 @@ void Dog::makeSound() const
 	std::cout << "Woof Woof" << std::endl;
 }
 
+Brain* Dog::getBrain()
+{
+	return brain;
+}
+
 Dog::~Dog()
 {
+	delete brain;
 	std::cout << "Dog destructor called" << std::endl;
 }

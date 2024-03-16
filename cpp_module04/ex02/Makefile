@@ -8,7 +8,7 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98
-SRC = Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp main.cpp
+SRC = Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = Animal_Sound
 
