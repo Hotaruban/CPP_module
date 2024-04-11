@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:42:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/03/26 11:55:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/04/04 11:52:28 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat& Cat::operator=(const Cat& other)
 	std::cout << "Cat assignation operator called" << std::endl;
 	if (this != &other)
 	{
-		this->setType(other.getType());
+		Animal::operator=(other);
 	}
 	return *this;
 }
