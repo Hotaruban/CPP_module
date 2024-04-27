@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:06:54 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/04/27 20:23:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/04/27 22:18:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,13 @@ Character& Character::operator=(const Character& other)
 			this->_inventory[i] = other._inventory[i]->clone();
 		else
 			this->_inventory[i] = NULL;
+	}
+	for (int i = 0; i < 500; i++)
+	{
+		if (other._remainMateria[i])
+			this->_remainMateria[i] = other._remainMateria[i]->clone();
+		else
+			this->_remainMateria[i] = NULL;
 	}
 	std::cout << "Character assignation operator called" << std::endl;
 	return (*this);
