@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:14:03 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/04/27 20:01:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/04/27 20:04:10 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ AMateria *MateriaSource::createMateria(std::string const& type)
 	for(int i = 0; i < 4; i++)
 	{
 		if (this->_stockMateria[i] && this->_stockMateria[i]->getType() == type)
-			return (this->_stockMateria[i]);
+			return (this->_stockMateria[i]->clone());
 	}
 	std::cout << "Materia not found" << std::endl;
 	return (NULL);

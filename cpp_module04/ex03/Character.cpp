@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:06:54 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/04/27 19:53:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/04/27 20:23:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ Character::Character(const Character& other) : _name(other.getName())
 		else
 			this->_inventory[i] = NULL;
 	}
+	for (int i = 0; i < 500; i++)
+	{
+		if (other._remainMateria[i])
+			this->_remainMateria[i] = other._remainMateria[i]->clone();
+		else
+			this->_remainMateria[i] = NULL;
+	}
 	std::cout << "Character copy constructor called" << std::endl;
 }
 
@@ -38,14 +45,18 @@ Character::~Character(void)
 	for(int i = 0; i < SLOT; i++)
 	{
 		if (this->_inventory[i])
+		{
 			delete this->_inventory[i];
 			this->_inventory[i] = NULL;
+		}
 	}
 	for(int i = 0; i < 500; i++)
 	{
 		if (this->_remainMateria[i])
+		{
 			delete this->_remainMateria[i];
-		this->_remainMateria[i] = NULL;
+			this->_remainMateria[i] = NULL;
+		}
 	}
 	std::cout << "Character " << this->_name << " destructor called" << std::endl;
 }

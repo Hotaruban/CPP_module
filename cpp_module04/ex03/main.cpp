@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:54:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/04/27 18:29:44 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/04/27 20:32:27 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,19 @@ int	main(void)
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	me->unequip(0);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	std::cout << "-----------------------------" << std::endl;
+
+	ICharacter* copyOfMe = new Character(*dynamic_cast<Character*>(me));
+	std::cout << copyOfMe->getName() << std::endl;
+
+	std::cout << "-----------------------------" << std::endl;
+
+	delete copyOfMe;
 
 	std::cout << "-----------------------------" << std::endl;
 
