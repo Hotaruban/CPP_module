@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/04/30 16:06:07 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/05/03 01:25:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ class Bureaucrat
 		std::string const	_name;
 		int					_grade;
 };
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:40 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/05/02 13:00:10 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/05/03 02:19:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,36 @@ int Form::getGradeToExecute() const
 void Form::beSigned(Bureaucrat const & bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
+	std::cout << bureaucrat.getName() << " signs form: " << this->_name << std::endl;
 	this->_signed = true;
+}
+
+void Form::signForm(Bureaucrat const & bureaucrat)
+{
+	try
+	{
+		if (bureaucrat.getGrade() < 1 || bureaucrat.getGrade() > 150)
+			throw "Grade is out of range.";
+		else if (bureaucrat.getGrade() > this->_gradeToSign)
+			throw Bureaucrat::GradeTooLowException();
+		this->beSigned(bureaucrat);
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << bureaucrat.getName() << " couldn't sign form: " << this->_name << " because " << e.what() << std::endl;
+	}
+	catch (const char* msg)
+	{
+		std::cerr << bureaucrat.getName() << " couldn't sign form: " << this->_name << " because " << msg << std::endl;
+	}
 }
 
 std::ostream & operator<<(std::ostream & os, Form const & form)
 {
-	os << "Form " << form.getName() << " is ";
 	if (form.getSigned())
-		os << "signed";
+		os << "Form " << form.getName() << " is signed";
 	else
-		os << "not signed";
-	os << " and requires grade " << form.getGradeToSign() << " to be signed and grade " << form.getGradeToExecute() << " to be executed.";
+		os << "Form " << form.getName() << " is not signed and requires grade " << form.getGradeToSign() << " or more to be signed and grade " << form.getGradeToExecute() << " or more to be executed.";
 	return (os);
 }

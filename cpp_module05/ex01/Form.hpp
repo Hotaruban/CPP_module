@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/05/02 12:44:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/05/03 00:39:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Form
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
 		void				beSigned(Bureaucrat const & bureaucrat);
+		void				signForm(Bureaucrat const & bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
