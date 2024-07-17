@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:40 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/05/03 02:19:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/17 21:46:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ Form & Form::operator=(Form const & src)
 	return (*this);
 }
 
+std::ostream & operator<<(std::ostream & os, Form const & form)
+{
+	if (form.getSigned())
+		os << "Form " << form.getName() << " is signed";
+	else
+		os << "Form " << form.getName() << " is not signed and requires grade " << form.getGradeToSign() << " or more to be signed and grade " << form.getGradeToExecute() << " or more to be executed.";
+	return (os);
+}
+
 std::string const Form::getName() const
 {
 	return (this->_name);
@@ -61,35 +70,6 @@ void Form::beSigned(Bureaucrat const & bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw Form::GradeTooLowException();
-	std::cout << bureaucrat.getName() << " signs form: " << this->_name << std::endl;
+	bureaucrat.signForm(*this);
 	this->_signed = true;
-}
-
-void Form::signForm(Bureaucrat const & bureaucrat)
-{
-	try
-	{
-		if (bureaucrat.getGrade() < 1 || bureaucrat.getGrade() > 150)
-			throw "Grade is out of range.";
-		else if (bureaucrat.getGrade() > this->_gradeToSign)
-			throw Bureaucrat::GradeTooLowException();
-		this->beSigned(bureaucrat);
-	}
-	catch (std::exception & e)
-	{
-		std::cerr << bureaucrat.getName() << " couldn't sign form: " << this->_name << " because " << e.what() << std::endl;
-	}
-	catch (const char* msg)
-	{
-		std::cerr << bureaucrat.getName() << " couldn't sign form: " << this->_name << " because " << msg << std::endl;
-	}
-}
-
-std::ostream & operator<<(std::ostream & os, Form const & form)
-{
-	if (form.getSigned())
-		os << "Form " << form.getName() << " is signed";
-	else
-		os << "Form " << form.getName() << " is not signed and requires grade " << form.getGradeToSign() << " or more to be signed and grade " << form.getGradeToExecute() << " or more to be executed.";
-	return (os);
 }

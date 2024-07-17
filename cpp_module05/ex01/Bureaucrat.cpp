@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:48 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/17 18:33:26 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/17 21:48:57 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,17 @@ void Bureaucrat::decrementGrade()
 	if (this->_grade == 150)
 		throw GradeTooLowException();
 	this->_grade++;
+}
+
+void Bureaucrat::signForm(const Form & form)
+{
+	try {
+		if (this->_grade > form.getGradeToSign())
+			throw Form::GradeTooLowException();
+
+	}
+	if (this->_grade > form.getGradeToSign())
+		std::cout << this->_name << " cannot sign " << form.getName() << " because his grade is too low." << std::endl;
+	else
+		std::cout << this->_name << " signs " << form.getName() << "." << std::endl;
 }
