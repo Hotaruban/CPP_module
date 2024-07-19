@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 21:24:09 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/19 22:03:42 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Bureaucrat
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm & form);
+
+		void		executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception
 		{
