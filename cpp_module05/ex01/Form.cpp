@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:40 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/17 21:46:18 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/19 19:15:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int Form::getGradeToExecute() const
 	return (this->_gradeToExecute);
 }
 
-void Form::beSigned(Bureaucrat const & bureaucrat)
+void Form::beSigned(const Bureaucrat & bureaucrat)
 {
+	// check if level of bureaucrat is high enough to sign the form
 	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException();
-	bureaucrat.signForm(*this);
+		throw GradeTooHighException();
 	this->_signed = true;
 }
