@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 22:14:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 22:39:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/19 22:53:17 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,13 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	try {
-		if (this->getSigned() == false)
-			throw AForm::FormNotSignedException();
-		if (executor.getGrade() > this->getGradeToExecute())
-			throw AForm::GradeTooLowException();
-		std::ofstream file(this->_target + "_shrubbery");
-		if (file.fail())
-			throw FileNotAccessException();
-		file << "ASCII trees" << std::endl;
-		file.close();
-	} catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
-	}
+	if (this->getSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	std::ofstream file(this->_target + "_shrubbery");
+	if (file.fail())
+		throw FileNotAccessException();
+	file << "ASCII trees" << std::endl;
+	file.close();
 }

@@ -6,13 +6,13 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:43 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 21:26:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/19 22:54:41 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -20,15 +20,27 @@ int main(void)
 	try {
 		Bureaucrat bureaucrat1("Asterix", 1);
 		std::cout << bureaucrat1 << std::endl;
-		AForm form1("A38", 50, 50);
+		ShrubberyCreationForm form1("A38");
 		std::cout << form1 << std::endl;
 		bureaucrat1.signForm(form1);
+		bureaucrat1.executeForm(form1);
 		std::cout << form1 << std::endl;
 	} catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << "----------------------" << std::endl;
-
+	try {
+		Bureaucrat bureaucrat1("Obelix", 138);
+		std::cout << bureaucrat1 << std::endl;
+		ShrubberyCreationForm form1("A37");
+		std::cout << form1 << std::endl;
+		bureaucrat1.signForm(form1);
+		bureaucrat1.executeForm(form1);
+		std::cout << form1 << std::endl;
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "----------------------" << std::endl;
 
 
 

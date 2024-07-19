@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/19 21:03:14 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/19 22:45:58 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98
-SRC = Bureaucrat.cpp AForm.cpp main.cpp
+SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = NerverDone
 
