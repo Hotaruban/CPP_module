@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:43 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/20 00:00:44 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/20 18:11:46 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int main(void)
 	AForm *form1;
 	AForm *form2;
 	AForm *form3;
+	AForm *form4;
 
 	try {
 		std::cout << "----------------------" << std::endl;
@@ -92,8 +93,12 @@ int main(void)
 		form3 = randomSlave.makeForm("presidential pardon", "Arthur Dent");
 		std::cout << *form3 << std::endl;
 		std::cout << "----------------------" << std::endl;
+		form4 = randomSlave.makeForm("execution", "Ford Prefect");
+		std::cout << *form4 << std::endl;
+		std::cout << "----------------------" << std::endl;
 	} catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
+		std::cout << "----------------------" << std::endl;
 	}
 	try {
 		Bureaucrat bureaucrat1("Asterix", 1);
@@ -117,5 +122,6 @@ int main(void)
 	delete form1;
 	delete form2;
 	delete form3;
+	std::cout << "----------------------" << std::endl;
 	return (0);
 }
