@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 00:20:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/21 23:58:36 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/22 00:03:57 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ScalarConverter::outChar(double num)
 
 void ScalarConverter::outInt(double num)
 {
-	if (isnan(num) || isinf(num) || num > INT_MAX || num < INT_MIN)
+	if (isnan(num) || isinf(num) || num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max())
 	{
 		std::cout << "int: impossible" << std::endl;
 	}
