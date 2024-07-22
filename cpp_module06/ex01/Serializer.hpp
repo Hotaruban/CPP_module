@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 00:09:19 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/22 00:11:37 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:31:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 #include <iostream>
 #include <string>
+
+
+struct Data
+{
+	double latitude;
+	double longitude;
+};
 
 class Serializer
 {
