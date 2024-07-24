@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/20 00:23:32 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/24 16:50:28 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ BCYAN = \033[1;36m
 RESET = \033[0m
 
 CXX = c++
-CXXFLAGS = -std=c++98
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp ScalarConverter.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = convert
