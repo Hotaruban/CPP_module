@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 22:14:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 22:53:17 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 14:27:45 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
+	std::string filename = this->_target + "_shrubbery";
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	std::ofstream file(this->_target + "_shrubbery");
+	std::ofstream file(filename.c_str());
 	if (file.fail())
 		throw FileNotAccessException();
 	file << "ASCII trees" << std::endl;

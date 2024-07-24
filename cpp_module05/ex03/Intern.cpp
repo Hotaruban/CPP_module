@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 23:42:24 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/20 18:22:05 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 14:28:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,4 @@ AForm * Intern::makeForm(std::string formName, std::string target)
 		default:
 			throw Intern::UnknownFormException();
 	}
-	//try {
-	//	if (formName == "shrubbery creation")
-	//	{
-	//		std::cout << "Intern creates " << formName << " form" << std::endl;
-	//		return (new ShrubberyCreationForm(target));
-	//	}
-	//	if (formName == "robotomy request")
-	//	{
-	//		std::cout << "Intern creates " << formName << " form" << std::endl;
-	//		return (new RobotomyRequestForm(target));
-	//	}
-	//	if (formName == "presidential pardon")
-	//	{
-	//		std::cout << "Intern creates " << formName << " form" << std::endl;
-	//		return (new PresidentialPardonForm(target));
-	//	}
-
-	//} catch (std::exception & e) {
-	//	throw Intern::UnknownFormException();
-	//}
 }
