@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/19 23:25:56 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/24 16:50:18 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ BCYAN = \033[1;36m
 RESET = \033[0m
 
 CXX = c++
-CXXFLAGS = -std=c++98
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = NerverDone
