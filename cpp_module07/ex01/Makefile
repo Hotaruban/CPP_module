@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/24 16:54:27 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/25 00:25:07 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = iter
+
+all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
