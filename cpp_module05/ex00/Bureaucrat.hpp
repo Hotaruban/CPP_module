@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 22:21:46 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/05/03 01:25:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 15:56:08 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat const & src);
 		~Bureaucrat();
 		Bureaucrat & operator=(Bureaucrat const & src);
-		friend std::ostream & operator<<(std::ostream & os, Bureaucrat const & bureaucrat);
 
 		int			getGrade() const;
 		std::string	getName() const;
@@ -50,5 +49,7 @@ class Bureaucrat
 		std::string const	_name;
 		int					_grade;
 };
+
+std::ostream & operator<<(std::ostream & os, Bureaucrat const & bureaucrat);
 
 #endif

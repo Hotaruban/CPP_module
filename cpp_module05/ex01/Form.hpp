@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 19:16:00 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 16:00:47 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Form
 		Form(Form const & src);
 		~Form();
 		Form & operator=(Form const & src);
-		friend std::ostream & operator<<(std::ostream & os, Form const & form);
 
 		std::string const	getName() const;
 		bool				getSigned() const;
@@ -56,8 +55,8 @@ class Form
 		bool				_signed;
 		int const			_gradeToSign;
 		int const			_gradeToExecute;
-	protected:
-
 };
+
+std::ostream & operator<<(std::ostream & os, Form const & form);
 
 #endif

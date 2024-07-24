@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:22:37 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 22:22:23 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 16:01:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class AForm
 		AForm(AForm const & src);
 		virtual ~AForm();
 		AForm & operator=(AForm const & src);
-		friend std::ostream & operator<<(std::ostream & os, AForm const & form);
 
 		std::string const	getName() const;
 		bool				getSigned() const;
@@ -67,8 +66,8 @@ class AForm
 		bool				_signed;
 		int const			_gradeToSign;
 		int const			_gradeToExecute;
-	protected:
-
 };
+
+std::ostream & operator<<(std::ostream & os, AForm const & form);
 
 #endif
