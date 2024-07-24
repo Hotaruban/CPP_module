@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 23:02:10 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 23:03:47 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/24 14:35:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <ctime>
 # include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm
