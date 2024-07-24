@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/22 16:18:35 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/24 11:48:25 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98
-SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRC = main.cpp Base.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = indentify
 
