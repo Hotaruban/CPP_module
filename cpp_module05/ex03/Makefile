@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/29 12:49:25 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/29 12:49:51 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ INC = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJ)
+$(EXECUTABLE): $(OBJ) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
 	@echo "$(BGREEN)Compilation successful!"
 
