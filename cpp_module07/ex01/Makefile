@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/25 00:25:07 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/29 12:43:34 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,11 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = iter
+INC = iter.hpp
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJ)
+$(EXECUTABLE): $(OBJ) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
 	@echo "$(BGREEN)Compilation successful!"
 
@@ -41,4 +42,4 @@ fclean: clean
 	@rm -f $(EXECUTABLE)
 	@echo "$(BRED)Executable removed."
 
-re: fclean $(EXECUTABLE)
+re: fclean all
