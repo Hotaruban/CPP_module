@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/24 16:50:23 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/29 12:49:25 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,9 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = NerverDone
+INC = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
+
+all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
@@ -39,4 +42,4 @@ fclean: clean
 	@rm -f $(EXECUTABLE)
 	@echo "$(BRED)Executable removed."
 
-re: fclean $(EXECUTABLE)
+re: fclean all
