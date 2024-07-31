@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 00:19:50 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/21 23:24:43 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/31 14:53:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <iomanip>
 # include <cmath>
 # include <cctype>
+# include <limits>
 
 class ScalarConverter
 {

@@ -6,16 +6,18 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 00:09:19 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/22 15:31:22 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/31 15:00:26 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
+# include <cstddef>
 
+typedef std::size_t uintptr_t;
 
 struct Data
 {
