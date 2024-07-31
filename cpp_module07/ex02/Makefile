@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/29 13:38:54 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/29 14:13:52 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp
+SRC = main.cpp Array.tpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = array
 INC = Array.hpp
