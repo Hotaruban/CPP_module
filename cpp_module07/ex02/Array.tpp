@@ -6,18 +6,19 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:14:05 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/31 16:20:09 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/31 22:17:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#ifndef ARRAY_TPP
+# define ARRAY_TPP
 
 # include "Array.hpp"
 
 template <typename T>
 Array<T>::Array() // Constructor
 {
+	std::cout << "Empty Array created" << std::endl;
 	_array = NULL;
 	_size = 0;
 }
@@ -25,6 +26,7 @@ Array<T>::Array() // Constructor
 template <typename T>
 Array<T>::Array(unsigned int n) // Constructor with size
 {
+	std::cout << "Array created with " << n << " elements" << std::endl;
 	_array = new T[n];
 	_size = n;
 }
@@ -32,12 +34,17 @@ Array<T>::Array(unsigned int n) // Constructor with size
 template <typename T>
 Array<T>::Array(const Array &src) // Copy constructor
 {
-	*this = src;
+	std::cout << "Array created by copy" << std::endl;
+	_array = new T[src._size];
+	for (unsigned int i = 0; i < src._size; i++)
+		_array[i] = src._array[i];
+	_size = src._size;
 }
 
 template <typename T>
 Array<T>::~Array() // Destructor
 {
+	std::cout << "Array destroyed" << std::endl;
 	if (_array)
 		delete [] _array;
 }
@@ -45,6 +52,7 @@ Array<T>::~Array() // Destructor
 template <typename T>
 Array<T> &Array<T>::operator=(const Array &src) // Assignation operator
 {
+	std::cout << "Array assigned" << std::endl;
 	if (this != &src)
 	{
 		if (_array)

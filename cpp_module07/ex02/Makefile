@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/31 15:26:59 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/31 22:07:43 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp Array.tpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = array
 INC = Array.hpp Array.tpp
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJ)
+$(EXECUTABLE): $(OBJ) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
 	@echo "$(BGREEN)Compilation successful!"
 
