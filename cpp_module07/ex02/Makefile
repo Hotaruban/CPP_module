@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/29 14:13:52 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/07/31 15:26:59 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp Array.tpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = array
-INC = Array.hpp
+INC = Array.hpp Array.tpp
 
 all: $(EXECUTABLE)
 

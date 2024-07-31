@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:05:10 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/29 16:39:24 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/31 15:34:31 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# include <exception>
 
 template <typename T>
 class Array
@@ -32,7 +33,10 @@ class Array
 		class OutOfLimitsException : public std::exception
 		{
 			public:
-				virtual const char *what() const throw();
+				virtual const char* what() const throw();
+				{
+					return ("Index is out of limits.");
+				}
 		};
 
 	private:
