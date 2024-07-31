@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 23:03:51 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/19 23:11:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:30:14 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();	std::cout << "Drilling noises..." << std::endl;
+		throw AForm::GradeTooLowException();
+			std::cout << "Drilling noises..." << std::endl;
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized successfully." << std::endl;
 	else
