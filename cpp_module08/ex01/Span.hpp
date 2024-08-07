@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:12:29 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/08/06 09:51:17 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/07 14:29:24 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <exception>
-# include <set>
+# include <vector>
 
 class span
 {
@@ -27,9 +27,27 @@ class span
 		int shortestSpan();
 		int longestSpan();
 
+		class numberFullException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "The number is full";
+				}
+		};
+
+		class numberEmptyException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "The number is empty or contains only one element";
+				}
+		};
+
 	private:
 		unsigned int	N;
-		std::set<int>	set;
+		std::vector<int>	vector;
 
 		span();
 		span(const span &span);
