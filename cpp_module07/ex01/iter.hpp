@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 20:38:49 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/31 23:04:37 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/15 12:39:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 template <typename T>
 void iter(T *array, size_t length, void (*function)(T const &))
 {
-	for (int i = 0; i < length; i++)
+	for (size_t i = 0; i < length; i++)
 		function(array[i]);
 }
 
