@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 11:14:02 by jhurpy            #+#    #+#              #
-#    Updated: 2024/08/05 12:50:07 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/08/15 13:22:18 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(EXECUTABLE): $(OBJ) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
 	@echo "$(BGREEN)Compilation successful!"
 
-%.o: %.cpp %.hpp
+%.o: %.cpp $(INC)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
