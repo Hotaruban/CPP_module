@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:12:29 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/08/07 14:29:24 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/15 20:09:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ class span
 		void addNumber(int number);
 		int shortestSpan();
 		int longestSpan();
+		void forAddNumber(int number);
 
 		class numberFullException : public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
 				{
-					return "The number is full";
+					return "The container of number is full";
 				}
 		};
 
@@ -41,7 +42,7 @@ class span
 			public:
 				virtual const char *what() const throw()
 				{
-					return "The number is empty or contains only one element";
+					return "The container of number is empty or contains only one element";
 				}
 		};
 
