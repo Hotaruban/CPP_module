@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:14:05 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/31 22:17:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/15 13:01:29 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ Array<T> &Array<T>::operator=(const Array &src) // Assignation operator
 template <typename T>
 T &Array<T>::operator[](unsigned int index) // Operator []
 {
+	//std::cout << "Operator [] called" << std::endl;
 	if (index >= _size)
 		throw OutOfLimitsException();
 	return _array[index];

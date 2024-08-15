@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 22:20:57 by jhurpy            #+#    #+#              #
-#    Updated: 2024/07/31 22:07:43 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/08/15 13:01:14 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ INC = Array.hpp Array.tpp
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJ) $(INC)
+$(EXECUTABLE): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXECUTABLE)
 	@echo "$(BGREEN)Compilation successful!"
 
-%.o: %.cpp %.hpp
+%.o: %.cpp $(INC)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

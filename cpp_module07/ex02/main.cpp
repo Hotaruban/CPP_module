@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:04:22 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/07/31 23:11:18 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/15 12:51:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int main(void)
 		array4[0] = "Hello";
 		array4[1] = "World";
 		array4[2] = "!";
+		for (unsigned int i = 0; i < 3; i++)
+			std::cout << array4[i] << " ";
+		std::cout << std::endl;
+		array4[1] = "42";
 		for (unsigned int i = 0; i < 3; i++)
 			std::cout << array4[i] << " ";
 		std::cout << std::endl;
