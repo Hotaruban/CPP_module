@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:12:29 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/08/15 20:09:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/08/21 14:28:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <exception>
 # include <vector>
+# include <algorithm>
 
 class span
 {
