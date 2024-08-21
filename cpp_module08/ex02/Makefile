@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:08:19 by jhurpy            #+#    #+#              #
-#    Updated: 2024/08/15 21:58:39 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/08/21 12:57:39 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-EXECUTABLE = span
-INC = MutantStack.hpp MutantStack.tpp
+EXECUTABLE = mutantstack
+INC = MutantStack.hpp
 
 all: $(EXECUTABLE)
 
