@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/03 18:41:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/04 01:35:17 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@ int BitcoinExchange::_daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 3
 
 BitcoinExchange::BitcoinExchange()
 {
+	/* data.cvs file incorrect Line 21 2009-02-29:
+	https://en.wikipedia.org/wiki/Portal:Current_events/February_2009/Calendar */
+
 	_parseCSV(CSV_FILE);
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
-{
-	(void)src;
-}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &src) { (void)src; }
 
-BitcoinExchange::~BitcoinExchange()
-{
-
-}
+BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
 {
@@ -36,7 +33,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
 	return *this;
 }
 
-bool BitcoinExchange::_validDate(const std::string date)
+bool BitcoinExchange::_validDate(const std::string &date)
 {
 	int yearInt;
 	int monthInt;
@@ -49,12 +46,11 @@ bool BitcoinExchange::_validDate(const std::string date)
 	std::string month = date.substr(5, 2);
 	std::string day = date.substr(8, 2);
 
-
-
+	// TODO
 	try {
-		yearInt = std::stoi(year);
-		monthInt = std::stoi(month);
-		dayInt = std::stoi(day);
+		yearInt = /* change year to int */ 0;
+		monthInt = /* change month to int */ 0;
+		dayInt = /* change day to int */ 0;
 	} catch (std::exception&) {
 		return false;
 	}
@@ -62,9 +58,8 @@ bool BitcoinExchange::_validDate(const std::string date)
 	if (yearInt < 2000 || yearInt > 2024 || monthInt < 1 || monthInt > 12)
 		return false;
 
-	if ((yearInt % 4 == 0 && yearInt % 100 != 0) || yearInt % 400 == 0)
-		_daysInMonth[1] = 29;
-	// cvs file incorrect => https://en.wikipedia.org/wiki/Portal:Current_events/February_2009/Calendar => 2009-02-29
+	bool leapYear = (yearInt % 4 == 0 && yearInt % 100 != 0) || (yearInt % 400 == 0);
+	_daysInMonth[1] = leapYear ? 29 : 28;
 
 	if (dayInt < 1 || dayInt > _daysInMonth[monthInt - 1])
 		return false;

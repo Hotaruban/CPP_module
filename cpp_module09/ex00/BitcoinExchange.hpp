@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 04:12:53 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/03 18:16:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/04 01:24:16 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class BitcoinExchange
 		std::map<std::string, float>	_data;
 		static int _daysInMonth[12];
 		void	_parseCSV(const std::string filename);
-		bool	_validDate(const std::string date);
+		bool	_validDate(const std::string &date);
 		bool	_validValue(const std::string value);
 		struct exchangeRate	_valueLine(std::string line);
 

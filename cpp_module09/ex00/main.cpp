@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 04:11:57 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/03 16:16:02 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/04 01:19:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 // Use containers std::map because it is a key-value pair container
 // Use std::string for the key and int for the value
-
-//static bool	checkFile(std::string filename)
-//{
-//	std::ifstream file(filename);
-
-//	if (!file.is_open())
-//		return false;
-//	file.close();
-//	return true;
-//}
+// The value in data.csv have a key unique so it is logical to use a map
 
 int	main(int ac, char **av)
 {
