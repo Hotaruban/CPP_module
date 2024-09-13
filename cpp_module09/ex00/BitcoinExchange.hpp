@@ -6,13 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 04:12:53 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/04 01:24:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/13 18:52:06 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+# include <sstream>
 # include <iostream>
 # include <fstream>
 # include <string>
@@ -37,13 +38,14 @@ class BitcoinExchange
 
 
 	private:
-		std::map<std::string, float>	_data;
-		static int _daysInMonth[12];
-		void	_parseCSV(const std::string filename);
-		bool	_validDate(const std::string &date);
-		bool	_validValue(const std::string value);
+		void			_parseCSV(const std::string filename);
+		bool			_validDate(const std::string &date);
+		bool			_validValue(const std::string value);
+		std::string		_rateCalculation(const struct exchangeRate & value);
 		struct exchangeRate	_valueLine(std::string line);
 
+		static int		_daysInMonth[12];
+		std::map<std::string, float>	_data;
 
 		BitcoinExchange(const BitcoinExchange &src);
 		BitcoinExchange &operator=(const BitcoinExchange &src);

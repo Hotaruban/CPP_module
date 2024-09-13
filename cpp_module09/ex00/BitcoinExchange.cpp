@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/04 01:35:17 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/13 19:03:06 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ bool BitcoinExchange::_validDate(const std::string &date)
 
 	// TODO
 	try {
-		yearInt = /* change year to int */ 0;
-		monthInt = /* change month to int */ 0;
-		dayInt = /* change day to int */ 0;
+		yearInt = std::strtol(year.c_str(), nullptr, 10);
+		monthInt = std::strtol(month.c_str(), nullptr, 10);
+		dayInt = std::strtol(day.c_str(), nullptr, 10);
 	} catch (std::exception&) {
 		return false;
 	}
 
-	if (yearInt < 2000 || yearInt > 2024 || monthInt < 1 || monthInt > 12)
+	if (yearInt < 2000 || yearInt > 9999 || monthInt < 1 || monthInt > 12)
 		return false;
 
 	bool leapYear = (yearInt % 4 == 0 && yearInt % 100 != 0) || (yearInt % 400 == 0);
@@ -72,18 +72,21 @@ bool BitcoinExchange::_validValue(const std::string value)
 	if (value.empty())
 		return false;
 
+	// confirm that there is only one decimal point
 	size_t pos = value.find(".");
-	if (pos != std::string::npos && value.find_last_not_of('.') != pos)
+	if (pos != std::string::npos && value.find_last_of('.') != pos)
 		return false;
 
-	if (value.find("f") != std::string::npos)
+	// confirm that there is only one 'f' at the end of the string
+	pos = value.find_first_of("f");
+	size_t pos2 = value.find_last_of('f');
+	if (pos != std::string::npos && (pos2 != pos || pos2 != value.length() - 1))
 		return false;
 
-	// TODO
+	// confirm that the string contains only digits, a decimal point, and an 'f'
 	if (value.find_first_not_of("0123456789.f") != std::string::npos)
 		return false;
-	if (value.find_first_of(".") != value.find_last_of("."))
-		return false;
+
 	return true;
 }
 
@@ -105,19 +108,19 @@ void BitcoinExchange::_parseCSV(const std::string filename)
 	{
 		pos = line.find(",");
 		if (pos == std::string::npos) // check if the line contains a comma
-			throw std::invalid_argument("Error: invalid file format: " + line);
+			throw std::invalid_argument("Error: invalid file format [line]: " + line);
 
 		key = line.substr(0, pos);
 		if (!_validDate(key)) // check if the date is valid
-			throw std::invalid_argument("Error: invalid file format: " + key);
+			throw std::invalid_argument("Error: invalid file format [date]: " + key);
 
 		std::string valueStr = line.substr(pos + 1);
 		if (!_validValue(valueStr)) // check if the value is valid
-			throw std::invalid_argument("Error: invalid file format: " + line.substr(pos + 1));
+			throw std::invalid_argument("Error: invalid file format [value]: " + line.substr(pos + 1));
 		else
 			value = std::stod(valueStr); // stod converts string to double
 		if (value < 0) // check if the value is valid (positive)
-			throw std::invalid_argument("Error: invalid file format: " + std::to_string(value));
+			throw std::invalid_argument("Error: invalid file format [value]: " + std::to_string(value));
 		_data[key] = value;
 	}
 	file.close();
@@ -135,23 +138,56 @@ struct exchangeRate BitcoinExchange::_valueLine(std::string line)
 	date = line.substr(0, pos);
 	rateStr = line.substr(pos + 3);
 	rate = std::stod(line.substr(pos + 2));
-	if (pos == std::string::npos || date.empty() || rate == 0)
+	if (pos == std::string::npos || date.empty() || rate == 0) // check if the line is correct
 		throw std::invalid_argument("Error: invalid input => " + line);
-	if (!_validDate(date))
+	if (!_validDate(date)) // check if the date is valid
 		throw std::invalid_argument("Error: invalid input => " + date);
-	if (rate < 0)
+	if (rate < 0) // check if the value is valid (positive)
 		throw std::invalid_argument("Error: not a positive number.");
-	if (rate > 1000)
+	if (rate > 1000) // check if the value is valid (not too large)
 		throw std::invalid_argument("Error: too large a number.");
 	value.date = date;
 	value.quantity = rate;
 	return value;
 }
 
+std::string BitcoinExchange::_rateCalculation(const struct exchangeRate & value)
+{
+	std::ostringstream oss;
+	std::string result;
+	float rate;
+	std::map<std::string, float>::iterator it = _data.find(value.date);
+	std::map<std::string, float>::iterator tmp_it;
+
+	if (it->first != value.date && it == _data.end())
+	{
+		it = tmp_it = _data.begin();
+		if (it->first > value.date)
+			throw std::invalid_argument("Error: date too old for the data.");
+		while (tmp_it->first != value.date && tmp_it != _data.end())
+		{
+			tmp_it++;
+			if ((tmp_it->first > value.date || tmp_it == _data.end()) && it->first < value.date)
+				break;
+			it = tmp_it;
+		}
+	}
+	rate = it->second * value.quantity;
+	oss << std::setprecision(2) << std::fixed << rate;
+	result = oss.str();
+	size_t pos = result.find_last_not_of("0");
+	if (pos != std::string::npos && result[pos] == '.')
+		pos--;
+	result = result.substr(0, pos + 1);
+
+	return result; // return the exchange rate
+}
+
 void BitcoinExchange::exchangeRate(std::ifstream &file)
 {
 	std::string line;
 	struct exchangeRate value;
+	std::string result;
 
 	std::getline(file, line);
 	if (line != "date | value")
@@ -159,10 +195,9 @@ void BitcoinExchange::exchangeRate(std::ifstream &file)
 	while (std::getline(file, line))
 	{
 		try {
-			// method to control the format of the line
-			value = _valueLine(line);
-			std::cout << value.date << " => " << value.quantity << std::endl;
-			// methode to find the date and the rate
+			value = _valueLine(line); // method to control the format of the line
+			result = _rateCalculation(value); // method to calculate the exchange rate
+			std::cout << value.date << " = " << value.quantity << " => " << result << std::endl;
 		} catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
