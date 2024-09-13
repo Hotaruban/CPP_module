@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 04:12:53 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 18:52:06 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/13 19:40:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # include <map>
 
 # define CSV_FILE "../data.csv"
+
+# define INVALID_INPUT "Error: bad input => "
+# define INVALID_FORMAT "Error: invalid file format => "
+# define INVALID_FILE "Error: invalid file => "
+# define INVALID_DATE "Error: date not valid in the base => "
+# define INVALID_VALUE "Error: not a positive number."
+# define INVALID_VALUE_TOO_LARGE "Error: too large a number."
 
 struct exchangeRate
 {
