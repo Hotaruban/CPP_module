@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 19:40:02 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/13 21:06:25 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ void BitcoinExchange::_parseCSV(const std::string filename)
 	if (!file.is_open())
 		throw std::invalid_argument(INVALID_FILE + filename);
 	std::getline(file, line);
+	if (file.peek() == std::ifstream::traits_type::eof())
+		throw std::invalid_argument(INVALID_FILE + filename);
 	if (line != "date,exchange_rate") // check if the first line is correct
 		throw std::invalid_argument(INVALID_FORMAT + line);
 
