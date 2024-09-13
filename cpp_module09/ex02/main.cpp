@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 13:30:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/08/25 13:30:55 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/14 01:35:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,16 @@
 
 int	main(int ac, char **av)
 {
+	try {
+		if (ac == 1)
+			throw std::invalid_argument("Usage: ./pmergme [list of integers]");
 
+		PmergeMe pmergeMe(av + 1, ac - 1);
+
+
+	} catch (std::invalid_argument &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	return (0);
 }
