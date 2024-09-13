@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 20:57:31 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/13 21:57:51 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ void RPN::_makeOperation(const char & c)
 	else if (c == '*')
 		_stack.push(b * a);
 	else if (c == '/')
+	{
 		_stack.push(b / a);
+		if (a == 0)
+			throw std::invalid_argument("Error");
+	}
 
 	_result = _stack.top();
 }
@@ -90,5 +94,8 @@ void RPN::_calculate(const char * str)
 			throw std::invalid_argument("Error");
 	}
 
+	if (_stack.size() != 1) // this option is not mentioned in the subject and is depended on the implementation
+		throw std::invalid_argument("Error");
+		
 	std::cout << _result << std::endl;
 }
