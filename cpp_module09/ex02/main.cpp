@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 13:30:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/16 19:37:43 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/16 21:12:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ bool	isNumber(char **av, int & ac)
 {
 	for (int i = 1; i < ac; i++)
 		for (int j = 0; av[i][j]; j++)
-			if (!std::isdigit(av[i][j]))
-				throw std::invalid_argument("Error: invalid argument: " + std::string(av[i]));
+			if (!std::isdigit(av[i][j]) && !std::isspace(av[i][j]))
+				throw std::invalid_argument("Error: invalid argument [isNumber]: " + std::string(av[i]));
 	return (true);
 }
 
 int	main(int ac, char **av)
 {
 	try {
-		if (ac <= 3)
+		if (ac < 1)
 			throw std::invalid_argument("Usage: ./pmergme [list of integerS]");
 		isNumber(av, ac);
 
 		PmergeMe pmergeMe(av, ac);
+		
 		pmergeMe.printUnsortedNumbers(av, ac);
 
 		pmergeMe.sortVec();

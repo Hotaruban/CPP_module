@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:14 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/16 19:41:45 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/16 21:12:37 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PMERGEME_HPP
 
 # include "logTab.hpp"
+# include <sstream>
 # include <iostream>
 # include <sys/time.h>
 # include <vector>
@@ -51,6 +52,7 @@ class PmergeMe
 		std::list<std::pair<std::list<int>, std::list<int> > >		_listL;
 		struct timeval		_startTime, _endTime;
 
+		void	_makeIntegers(char **av, int & ac);
 		void	_printTime(std::string container);
 };
 

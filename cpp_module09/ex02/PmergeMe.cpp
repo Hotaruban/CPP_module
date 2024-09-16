@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:12 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/16 19:43:58 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/16 21:16:28 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,7 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(char **av, int & ac)
 {
-	int number;
-	_size = ac - 1;
-
-	for (int i = 1; i < ac; i++)
-	{
-		number = std::atoi(av[i]);
-		if (number > INT_MAX)
-			throw std::invalid_argument("Error: invalid argument: " + std::string(av[i]));
-		_vector.push_back(number);
-		_list.push_back(number);
-	}
+	_makeIntegers(av, ac);
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other)
@@ -169,7 +159,14 @@ void	PmergeMe::printUnsortedNumbers(char **av, int & ac)
 {
 	std::cout << "Before sorting:\t";
 	for (int i = 1; i < ac; i++)
+	{
 		std::cout << av[i] << " ";
+		if (i > 2)
+		{
+			std::cout << "[...]";
+			break;
+		}
+	}
 	std::cout << std::endl;
 }
 
@@ -178,7 +175,14 @@ void	PmergeMe::_printSortedNumbers(T & cont)
 {
 	std::cout << "After sorting:\t";
 	for (typename T::iterator it = cont.begin(); it != cont.end(); it++)
+	{
 		std::cout << *it << " ";
+		if (std::distance(cont.begin(), it) > 2)
+		{
+			std::cout << "[...]";
+			break;
+		}
+	}
 	std::cout << std::endl;
 }
 
@@ -188,4 +192,19 @@ void	PmergeMe::_printTime(std::string container)
 	long microseconds = _endTime.tv_usec - _startTime.tv_usec;
 	double duration = seconds + microseconds * 1e-6;
 	std::cout << "Time to process a range of " << _size << " elements with " << container << "(): " << duration << " us" << std::endl;
+}
+
+void PmergeMe::_makeIntegers(char **av, int & ac)
+{
+	unsigned int number;
+	_size = ac - 1;
+
+	for (int i = 1; i < ac; i++)
+	{
+		number = std::atol(av[i]);
+		if (number > INT_MAX)
+			throw std::invalid_argument("Error: invalid argument: " + std::string(av[i]));
+		_vector.push_back((int) number);
+		_list.push_back((int) number);
+	}
 }
