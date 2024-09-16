@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:12 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/16 21:16:28 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/16 22:01:15 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(char **av, int & ac)
 {
+	_isNumber(av, ac);
 	_makeIntegers(av, ac);
 }
 
@@ -118,7 +119,8 @@ void PmergeMe::_sortContainerInt(T &cont1, T &cont2)
 
 void PmergeMe::sortVec()
 {
-	gettimeofday(&_startTime, NULL);
+	//gettimeofday(&_startTime, NULL);
+	_start = clock();
 
 	_containerOfContainers(_vector, _vectorV);
 
@@ -129,15 +131,17 @@ void PmergeMe::sortVec()
 
 	_vector = _vectorV[0].first;
 
-	_printSortedNumbers(_vector);
+	//gettimeofday(&_endTime, NULL);
+	_end = clock();
 
-	gettimeofday(&_endTime, NULL);
+	_printSortedNumbers(_vector);
 	_printTime("std::vector");
 }
 
 void PmergeMe::sortList()
 {
-	gettimeofday(&_startTime, NULL);
+	//gettimeofday(&_startTime, NULL);
+	_start = clock();
 
 	_containerOfContainers(_list, _listL);
 
@@ -149,9 +153,10 @@ void PmergeMe::sortList()
 
 	_list = _listL.front().first;
 
-	//_printSortedNumbers(_list);
+	//gettimeofday(&_endTime, NULL);
+	_end = clock();
 
-	gettimeofday(&_endTime, NULL);
+	//_printSortedNumbers(_list);
 	_printTime("std::list");
 }
 
@@ -161,7 +166,7 @@ void	PmergeMe::printUnsortedNumbers(char **av, int & ac)
 	for (int i = 1; i < ac; i++)
 	{
 		std::cout << av[i] << " ";
-		if (i > 2)
+		if (i > 6)
 		{
 			std::cout << "[...]";
 			break;
@@ -177,7 +182,7 @@ void	PmergeMe::_printSortedNumbers(T & cont)
 	for (typename T::iterator it = cont.begin(); it != cont.end(); it++)
 	{
 		std::cout << *it << " ";
-		if (std::distance(cont.begin(), it) > 2)
+		if (std::distance(cont.begin(), it) > 5)
 		{
 			std::cout << "[...]";
 			break;
@@ -188,10 +193,16 @@ void	PmergeMe::_printSortedNumbers(T & cont)
 
 void	PmergeMe::_printTime(std::string container)
 {
-	long seconds = _endTime.tv_sec - _startTime.tv_sec;
-	long microseconds = _endTime.tv_usec - _startTime.tv_usec;
-	double duration = seconds + microseconds * 1e-6;
-	std::cout << "Time to process a range of " << _size << " elements with " << container << "(): " << duration << " us" << std::endl;
+	double duraclock = static_cast<double>(_end - _start) / CLOCKS_PER_SEC * 1e6;
+
+	//long seconds = _endTime.tv_sec - _startTime.tv_sec;
+	//long microseconds = _endTime.tv_usec - _startTime.tv_usec;
+	//double duration = seconds * 1e-6 + microseconds;
+	//std::cout << "Time to process a range of " << _size << " elements with " << container << "(): " << duration << " us" << std::endl;
+
+	std::cout << std::fixed << std::setprecision(2);
+	std::cout << "Time to process a range of " << _size << " elements with " << container << "(): " << duraclock << " us" << std::endl;
+
 }
 
 void PmergeMe::_makeIntegers(char **av, int & ac)
@@ -207,4 +218,13 @@ void PmergeMe::_makeIntegers(char **av, int & ac)
 		_vector.push_back((int) number);
 		_list.push_back((int) number);
 	}
+}
+
+bool	PmergeMe::_isNumber(char **av, int & ac)
+{
+	for (int i = 1; i < ac; i++)
+		for (int j = 0; av[i][j]; j++)
+			if (!std::isdigit(av[i][j]) && !std::isspace(av[i][j]))
+				throw std::invalid_argument("Error: invalid argument [isNumber]: " + std::string(av[i]));
+	return (true);
 }
