@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/22 17:01:41 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/22 17:10:05 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# define SIZE_PRINT 100
+# define SIZE_PRINT 10
 
 # include <iostream>
 # include <string>
@@ -35,7 +35,7 @@ class PmergeMe
 		void	printContainer(std::string str, size_t size);
 		void	startClock();
 		void	endClock();
-		void	returnTime();
+		void	returnTime(std::string str);
 		void	mergeInsert();
 
 	private:
@@ -59,10 +59,12 @@ class PmergeMe
 		void				_sortPairs(vectorPairs &pairs);
 
 		// list specialization
+		//void				_insert(listPairs &pairs, std::list<size_t> & jabobsthal);
 		//void				_generateJacobsthal(std::list<size_t>& jacobsthal);
 		//pairsInt			_createPairs(std::list<int> &container);
-		//void				_insert();
-		//std::list<int>	_findMiddle(int & middle, std::list<int> & containers);
+		//int				_findMiddle(int & middle, std::list<int> & containers);
+		//int				_findJacobsthal(int i);
+		//void				_sortPairs(listPairs &pairs);
 
 		// common methods
 		int					_binarySearch(int target);
@@ -125,11 +127,16 @@ template <typename T>
 void PmergeMe<T>::endClock() { this->_end = clock(); }
 
 template <typename T>
-void PmergeMe<T>::returnTime()
+void PmergeMe<T>::returnTime(std::string str)
 {
 	double time = (double)(this->_end - this->_start) / CLOCKS_PER_SEC * 1e6;
 	std::cout << std::fixed << std::setprecision(2);
-	std::cout << "Time to process a range of " << this->_size << " elements: " << time << " us" << std::endl;
+	std::cout << "Time to process a range of " << this->_size;
+	if (this->_size == 1)
+		std::cout << " element with ";
+	else
+		std::cout << " elements with ";
+	std::cout << str << ": " << time << " us" << std::endl;
 }
 
 /* ************************************************************************** */

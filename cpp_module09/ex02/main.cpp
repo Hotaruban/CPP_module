@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/22 16:02:18 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/22 17:07:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		vectorPmergeMe.mergeInsert();
 		vectorPmergeMe.endClock();
 		vectorPmergeMe.printContainer("After sorting:\t", SIZE_PRINT);
-		vectorPmergeMe.returnTime();
+		vectorPmergeMe.returnTime("std::vector");
 
 		//listPmergeMe.startClock();
 		//listPmergeMe.makeIntegers(argv, argc);
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 		//listPmergeMe.mergeInsert();
 		//listPmergeMe.endClock();
 		//listPmergeMe.printContainer("After sorting:\t", SIZE_PRINT);
-		//listPmergeMe.returnTime();
+		//listPmergeMe.returnTime("std::list");
 
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
