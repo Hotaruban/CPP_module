@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/22 17:10:05 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/22 22:44:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PMERGEME_HPP
 
 # define SIZE_PRINT 10
+# define BEFORE "Before sorting:\t"
+# define AFTER "After sorting:\t"
+# define VECTOR "std::vector"
+# define LIST "std::list"
 
 # include <iostream>
 # include <string>
@@ -36,7 +40,8 @@ class PmergeMe
 		void	startClock();
 		void	endClock();
 		void	returnTime(std::string str);
-		void	mergeInsert();
+		void	mergeInsertVector();
+		void	mergeInsertList();
 
 	private:
 		T			_container;
@@ -49,24 +54,22 @@ class PmergeMe
 		typedef std::vector<pairsInt>	vectorPairs;
 		typedef std::list<pairsInt>		listPairs;
 
-		bool	_isNumber(char **av, int & ac);
+		bool				_isNumber(char **av, int & ac);
+
 		// vector specialization
-		void				_insert(vectorPairs &pairs, std::vector<size_t> & jabobsthal);
-		void				_generateJacobsthal(std::vector<size_t> & jacobsthal);
 		vectorPairs			_createPairs(std::vector<int> &container);
-		int					_findMiddle(int & middle, std::vector<int> & containers);
-		int					_findJacobsthal(int i);
 		void				_sortPairs(vectorPairs &pairs);
+		void				_insert(vectorPairs &pairs, std::vector<size_t> & jabobsthal);
+		int					_findMiddle(int & middle, std::vector<int> & containers);
 
 		// list specialization
-		//void				_insert(listPairs &pairs, std::list<size_t> & jabobsthal);
-		//void				_generateJacobsthal(std::list<size_t>& jacobsthal);
-		//pairsInt			_createPairs(std::list<int> &container);
-		//int				_findMiddle(int & middle, std::list<int> & containers);
-		//int				_findJacobsthal(int i);
-		//void				_sortPairs(listPairs &pairs);
+		listPairs			_createPairs(std::list<int> &container);
+		void				_sortPairs(listPairs &pairs);
+		void				_insert(listPairs &pairs, std::vector<size_t> & jabobsthal);
+		int					_findMiddle(int & middle, std::list<int> & containers);
 
 		// common methods
+		void				_generateJacobsthal(std::vector<size_t> & jacobsthal);
 		int					_binarySearch(int target);
 };
 
@@ -111,9 +114,10 @@ void	PmergeMe<T>::printContainer(std::string str, size_t size)
 	for (typename T::iterator it = this->_container.begin(); it != this->_container.end(); it++)
 	{
 		std::cout << *it << " ";
-		if (std::distance(this->_container.begin(), it) == static_cast<long>(size))
+		if (std::distance(this->_container.begin(), it) == static_cast<long>(size - 1))
 		{
-			std::cout << "[...]";
+			if (_size > SIZE_PRINT)
+				std::cout << "[...]";
 			break;
 		}
 	}
@@ -146,7 +150,7 @@ void PmergeMe<T>::returnTime(std::string str)
 /* ************************************************************************** */
 
 template <typename T>
-void	PmergeMe<T>::mergeInsert()
+void	PmergeMe<T>::mergeInsertVector()
 {
 	vectorPairs pairs = _createPairs(_container);
 	std::vector<size_t>	jabobsthal;
@@ -178,24 +182,6 @@ typename PmergeMe<T>::vectorPairs PmergeMe<T>::_createPairs(std::vector<int> &co
 		pairs.push_back(std::make_pair(container[i], container[i + 1]));
 	}
 	return (pairs);
-}
-
-template <typename T>
-void PmergeMe<T>::_generateJacobsthal(std::vector<size_t> & jacobsthal) {
-	int	jacobsthalSequence[_size];
-
-	jacobsthalSequence[0] = 0;
-	jacobsthalSequence[1] = 1;
-	int	lastJabobsthalNumber = 2;
-
-	for (size_t i = 2; jacobsthal.size() < _size; i++)
-	{
-		jacobsthalSequence[i] = 2 * jacobsthalSequence[i - 1] + jacobsthalSequence[i - 2];
-		i != 2 ? jacobsthal.push_back(jacobsthalSequence[i - 1]) : (void)0;
-		for (int j = jacobsthalSequence[i] - 1; j > lastJabobsthalNumber; j--)
-			jacobsthal.push_back(j);
-		lastJabobsthalNumber = jacobsthalSequence[i];
-	}
 }
 
 template <typename Container>
@@ -260,40 +246,113 @@ int PmergeMe<T>::_findMiddle(int & middle, std::vector<int> & containers)
 /*                                                                            */
 /* ************************************************************************** */
 
-//template <typename T>
-//void PmergeMe<T>::_generateJacobsthal(std::list<size_t>& jacobsthal) {
-//	jacobsthal.push_back(1);
-//	jacobsthal.push_back(3);
+template <typename T>
+void PmergeMe<T>::mergeInsertList()
+{
+	listPairs pairs = _createPairs(_container);
+	std::vector<size_t>	jabobsthal;
 
-//	for (size_t i = 2; ; ++i)
-//	{
-//		size_t next = jacobsthal.back() + 2 * jacobsthal.front();
-//		if (next > this->_size) break;
-//		jacobsthal.push_back(next);
-//	}
-//}
+	_generateJacobsthal(jabobsthal);
 
-//template <typename T>
-//typename PmergeMe<T>::pairsInt PmergeMe<T>::_createPairs(std::list<int> &container) {
-//	pairsInt	pairs;
-//	return (pairs);
-//}
+	if (pairs.size() == 0) {
+		_container.push_back(_last);
+		return;
+	}
 
-//template <typename T>
-//std::list<int> PmergeMe<T>::_findMiddle(int & middle, std::list<int> & containers)
-//{
-//	std::list<int>::iterator it = containers.begin();
-//	std::advance(it, middle);
-//	return (*it);
-//}
+	_sortPairs(pairs);
 
-//template <typename T>
-//int PmergeMe<T>::_findJacobsthal(int i)
-//{
-//	std::list<size_t>::iterator it = _jacobsthal.begin();
-//	std::advance(it, i);
-//	return (*it);
-//}
+	_insert(pairs, jabobsthal);
+}
+
+template <typename T>
+typename PmergeMe<T>::listPairs PmergeMe<T>::_createPairs(std::list<int> &container)
+{
+	listPairs	pairs;
+
+	if (container.size() % 2 != 0) {
+		_last = container.back();
+		container.pop_back();
+	}
+
+	for (std::list<int>::iterator it = container.begin(); it != container.end(); it++) {
+		int first = *it;
+		it++;
+		int second = *it;
+		if (first < second)
+			std::swap(first, second);
+		pairs.push_back(std::make_pair(first, second));
+	}
+	return (pairs);
+}
+
+template <typename T>
+void	PmergeMe<T>::_sortPairs(listPairs &pairs)
+{
+	if (pairs.size() <= 1)
+		return;
+
+	size_t		middle = pairs.size() / 2;
+
+	typename listPairs::iterator middleIt = pairs.begin();
+	std::advance(middleIt, middle);
+
+	listPairs	left(pairs.begin(), middleIt);
+	listPairs	right(middleIt, pairs.end());
+
+	_sortPairs(left);
+	_sortPairs(right);
+
+	typename listPairs::iterator leftIt = left.begin();
+	typename listPairs::iterator rightIt = right.begin();
+	typename listPairs::iterator pairsIt = pairs.begin();
+
+	while (leftIt != left.end() && rightIt != right.end())
+		*pairsIt++ = ((*leftIt).first < (*rightIt).first) ? *leftIt++ : *rightIt++;
+
+	while (leftIt != left.end())
+		*pairsIt++ = *leftIt++;
+
+	while (rightIt != right.end())
+		*pairsIt++ = *rightIt++;
+}
+
+template <typename T>
+void	PmergeMe<T>::_insert(listPairs &pairs, std::vector<size_t> & jabobsthal)
+{
+	_container.clear();
+
+	_container.push_back(pairs.front().second);
+
+	for (std::list<pairsInt>::iterator it = pairs.begin(); it != pairs.end(); it++)
+		_container.push_back(it->first);
+
+	for (size_t i = 0; i < jabobsthal.size(); i++) {
+		if (size_t(jabobsthal[i] - 1) >= pairs.size())
+			continue;
+
+		typename listPairs::iterator pairIt = pairs.begin();
+		std::advance(pairIt, jabobsthal[i] - 1);
+		int index = _binarySearch(pairIt->second);
+		std::list<int>::iterator it = _container.begin();
+		std::advance(it, index);
+		_container.insert(it, pairIt->second);
+	}
+
+	if (_last != -1) {
+		int	index = _binarySearch(_last);
+		std::list<int>::iterator it = _container.begin();
+		std::advance(it, index);
+		_container.insert(it, _last);
+	}
+}
+
+template <typename T>
+int	PmergeMe<T>::_findMiddle(int & middle, std::list<int> & containers)
+{
+	std::list<int>::iterator it = containers.begin();
+	std::advance(it, middle);
+	return (*it);
+}
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -319,6 +378,25 @@ int	PmergeMe<T>::_binarySearch(int target)
 			right = middle - 1;
 	}
 	return (left);
+}
+
+template <typename T>
+void PmergeMe<T>::_generateJacobsthal(std::vector<size_t> & jacobsthal)
+{
+	int	jacobsthalSequence[_size];
+
+	jacobsthalSequence[0] = 0;
+	jacobsthalSequence[1] = 1;
+	int	lastJabobsthalNumber = 2;
+
+	for (size_t i = 2; jacobsthal.size() < _size; i++)
+	{
+		jacobsthalSequence[i] = 2 * jacobsthalSequence[i - 1] + jacobsthalSequence[i - 2];
+		i != 2 ? jacobsthal.push_back(jacobsthalSequence[i - 1]) : (void)0;
+		for (int j = jacobsthalSequence[i] - 1; j > lastJabobsthalNumber; j--)
+			jacobsthal.push_back(j);
+		lastJabobsthalNumber = jacobsthalSequence[i];
+	}
 }
 
 #endif
