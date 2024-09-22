@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:20 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/21 22:45:03 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/22 16:02:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		vectorPmergeMe.startClock();
 		vectorPmergeMe.makeIntegers(argv, argc);
 		vectorPmergeMe.printContainer("Before sorting:\t", SIZE_PRINT);
-		//vectorPmergeMe.mergeInsert();
+		vectorPmergeMe.mergeInsert();
 		vectorPmergeMe.endClock();
 		vectorPmergeMe.printContainer("After sorting:\t", SIZE_PRINT);
 		vectorPmergeMe.returnTime();

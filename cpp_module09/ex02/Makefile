@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:08:19 by jhurpy            #+#    #+#              #
-#    Updated: 2024/09/16 00:39:23 by jhurpy           ###   ########.fr        #
+#    Updated: 2024/09/22 15:52:02 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET = \033[0m
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp PmergeMe.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXECUTABLE = PmergeMe
 INC = PmergeMe.hpp
