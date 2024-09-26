@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/26 11:36:36 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 17:40:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ bool	PmergeMe<T>::_isNumber(char **av, int & ac)
 template <typename T>
 void PmergeMe<T>::makeIntegers(char **av, int ac)
 {
-	if (ac < 1)
+	if (ac < 2)
 		throw std::invalid_argument("Usage: ./pmergme [list of integerS]");
 	_isNumber(av, ac);
 	this->_size = ac - 1;
