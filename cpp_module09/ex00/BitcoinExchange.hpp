@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 04:12:53 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 19:40:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:23:23 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <sstream>
 # include <iostream>
+# include <iomanip>
+# include <cstdlib>
 # include <fstream>
 # include <string>
 # include <map>

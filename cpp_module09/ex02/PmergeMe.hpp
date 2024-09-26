@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:46:25 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/22 22:44:36 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:36:36 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <string>
 # include <sstream>
 # include <sys/time.h>
+# include <cstdlib>
+# include <climits>
 # include <ctime>
 # include <iomanip>
 # include <vector>

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:10 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 20:43:30 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:32:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <stack>
+# include <cstring>
+# include <cstdlib>
 
 class RPN
 {

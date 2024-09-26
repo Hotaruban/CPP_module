@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:07 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 21:57:51 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:31:13 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool RPN::_isDigit(const char & c)
 
 void RPN::_calculate(const char * str)
 {
-	int len = std::strlen(str);
+	int len = strlen(str);
 	if (!str)
 		throw std::invalid_argument("Error");
 
@@ -89,13 +89,13 @@ void RPN::_calculate(const char * str)
 		else if (RPN::_isOperator(str[i]) && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			RPN::_makeOperation(str[i]);
 		else if (_isDigit(str[i]) && str[i + 1] == ' ')
-			_stack.push(std::atoi(&str[i]));
+			_stack.push(atoi(&str[i]));
 		else
 			throw std::invalid_argument("Error");
 	}
 
 	if (_stack.size() != 1) // this option is not mentioned in the subject and is depended on the implementation
 		throw std::invalid_argument("Error");
-		
+
 	std::cout << _result << std::endl;
 }

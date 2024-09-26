@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/13 21:06:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:28:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ bool BitcoinExchange::_validDate(const std::string &date)
 	std::string day = date.substr(8, 2);
 
 	try {
-		yearInt = std::strtol(year.c_str(), nullptr, 10);
-		monthInt = std::strtol(month.c_str(), nullptr, 10);
-		dayInt = std::strtol(day.c_str(), nullptr, 10);
+		yearInt = std::strtol(year.c_str(), NULL, 10);
+		monthInt = std::strtol(month.c_str(), NULL, 10);
+		dayInt = std::strtol(day.c_str(), NULL, 10);
 	} catch (std::exception&) {
 		return false;
 	}
@@ -91,7 +91,7 @@ bool BitcoinExchange::_validValue(const std::string value)
 
 void BitcoinExchange::_parseCSV(const std::string filename)
 {
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 	std::string line;
 	size_t pos;
 	std::string key;
@@ -119,9 +119,14 @@ void BitcoinExchange::_parseCSV(const std::string filename)
 		if (!_validValue(valueStr)) // check if the value is valid
 			throw std::invalid_argument(INVALID_FORMAT + line.substr(pos + 1));
 		else
-			value = std::strtod(valueStr.c_str(), nullptr); // stod converts string to double
+			value = std::strtod(valueStr.c_str(), NULL); // stod converts string to double
 		if (value < 0) // check if the value is valid (positive)
-			throw std::invalid_argument(INVALID_FORMAT + std::to_string(value));
+		{
+			std::ostringstream oss;
+			oss << value;
+			std::string value_str = oss.str();
+			throw std::invalid_argument(INVALID_FORMAT + value_str);
+		}
 
 		_data[key] = value;
 	}
@@ -139,7 +144,7 @@ struct exchangeRate BitcoinExchange::_valueLine(std::string line)
 	pos = line.find(" | ");
 	date = line.substr(0, pos);
 	rateStr = line.substr(pos + 3);
-	rate = std::strtod(line.substr(pos + 2).c_str(), nullptr); // stod converts string to double
+	rate = std::strtod(line.substr(pos + 2).c_str(), NULL); // stod converts string to double
 	if (pos == std::string::npos || date.empty() || rate == 0) // check if the line is correct
 		throw std::invalid_argument(INVALID_INPUT + line);
 	if (!_validDate(date)) // check if the date is valid
