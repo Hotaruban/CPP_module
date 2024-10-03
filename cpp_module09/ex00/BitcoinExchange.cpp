@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 21:49:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2024/09/26 11:28:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:10 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,8 @@ struct exchangeRate BitcoinExchange::_valueLine(std::string line)
 		throw std::invalid_argument(INVALID_INPUT + line);
 	if (!_validDate(date)) // check if the date is valid
 		throw std::invalid_argument(INVALID_INPUT + date);
+	if (!_validDate(rateStr)) // check if the value is valid
+		throw std::invalid_argument(INVALID_INPUT + rateStr);
 	if (rate < 0) // check if the value is valid (positive)
 		throw std::invalid_argument(INVALID_VALUE);
 	if (rate > 1000) // check if the value is valid (not too large)
